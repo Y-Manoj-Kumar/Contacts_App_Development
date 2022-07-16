@@ -9,33 +9,34 @@ class AppLogic
  
     }
 
+    // Numpad,SearchBar,MenuBar are independent with the main logic 
 
-    void opens_App() //Here we have two cases 1.RecentTab and 2.App DefaultTab
+    void Start() //Here we have two cases 1.RecentTab and 2.App DefaultTab
     {
         if(opens_app_recently)
         {
 
          /*
-         -->The app collects the data of last closed tab and when you opens the app next time
-           it displays that lastRecentTab.
+         -->The app collects the activity of CurrentTab opened and when you opens the app next time
+            it displays that OpenedApp.
          */
 
          // Here we have 3 cases 
 
             //CASE-1
-            if(lastRecentTab == favourite_Tab)
+            if(currentab == favourite_Tab)
             {
                 favourite_Tab();
             } 
 
             // CASE-2
-            else if(lastRecentTab == recent_Tab)
+            else if(currentab == recent_Tab)
             {
                 recent_Tab();
             }
 
             // CASE-3   
-            else if(lastRecentTab == contacts_Tab)
+            else if(currentab == contacts_Tab)
             {
                 contacts_Tab();
             }
@@ -53,15 +54,15 @@ class AppLogic
                                 USAGE AND WORKING OF favourite_Tab(ft)
     -->The main function of ft is to bookmark the important contacts  at a specific place which makes easy
        to access/find the contacts.
-    -->You can add[displays sub tab] or remove a contact at any time. 
-    -->And there is a some suggested contacts to mark them for bookmark.
-    -->You can search the contact in search bar for bookmark  or you can find through numpad 
+    -->You can add[displays sub tab] or remove a bookmark at any time. 
+    -->And there is a some suggested[the most frequent contacts] bookmark.
+    -->You can make a bookmark by going to profile
     */
-        void bookmark()
+        void HowToCreateookmark() // Create another class
         {
             if(clicksOnSearchBar) 
             {
-                // opens a new window which diaplays virtual keyboard and suggested contacts
+                // opens a new window which diaplays keyboard and suggested contacts
                 search_Bar();
             }
             else if(clicksOnNumPad)
